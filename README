@@ -1,0 +1,53 @@
+TIC TAC TOE
+===========
+
+A game implementation consisting of various user interfaces and a.i. strategies
+and a server to let them compete agains each other.
+
+API
+---
+
+`Board`:
+
+The game board is a dictionary that indexes the fields as following:
+
+```
+  1 | 2 | 3
+ ---+---+---
+  4 | 5 | 6
+ ---+---+---
+  7 | 8 | 9
+```
+
+Players are represented by "x" and "o" respectively. At the start of the game,
+all fields are initialized to " ".
+
+`Player`:
+
+A client implementation consists of a model containing a `Player` class.
+
+The following methods have to be implemented:
+
+`get_move(board)`:
+
+This method should expect an instance of `Board` representing the current state
+of the game as a single argument and return an int representing the intended move.
+
+Raising an `EOFError` forfeits the game.
+
+`end(board, state)`:
+
+On conclusion of the game, this method is called with an instance of `Board`
+representing the final state of the game, as well as the condition that lead to
+the end of the game (see `State`)
+
+`State`:
+
+An Enum that represents the various end states of the game:
+
+- WIN ...... The player won the game.
+- LOSS ..... The player lost the game.
+- DRAW ..... The game ended in a draw.
+- DEFAULT .. The player won the game by default of the opponent.
+- QUIT ..... The player lost the game by quitting.
+
